@@ -26,6 +26,7 @@ public class ApngImageLoader extends ImageLoader {
     private static ApngImageLoader singleton;
 
     private Context context;
+    private ApngImageLoaderCallback imageLoaderCallback;
 
     public static ApngImageLoader getInstance() {
         if (singleton == null) {
@@ -75,7 +76,7 @@ public class ApngImageLoader extends ImageLoader {
 
     @Override
     public void displayImage(String uri, ImageView imageView) {
-        displayApng(uri, imageView, null);
+        displayApng(uri, imageView, (ApngConfig) null);
     }
 
     @Override
@@ -91,6 +92,10 @@ public class ApngImageLoader extends ImageLoader {
      */
     public void displayApng(String uri, ImageView imageView, ApngConfig config) {
         super.displayImage(uri, imageView, new ApngImageLoadingListener(context, Uri.parse(uri), getAutoPlayHandler(config, null)));
+    }
+
+    public void displayApng(String uri, ImageView imageView, ApngImageLoaderCallback callback) {
+        super.displayImage(uri, imageView, new ApngImageLoadingListener(context, Uri.parse(uri), callback));
     }
 
     /**

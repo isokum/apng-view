@@ -219,6 +219,10 @@ public class ApngDrawable extends Drawable implements Animatable, Runnable {
 		invalidateSelf();
 	}
 
+	public void setCurrntFrame(int frameIndex) {
+		this.currentFrame = frameIndex;
+	}
+
 	@Override
 	public void draw(Canvas canvas) {
 		if (enableVerboseLog) FLog.v("Current frame: %d", currentFrame);
@@ -431,7 +435,7 @@ public class ApngDrawable extends Drawable implements Animatable, Runnable {
         return bitmap;
     }
 
-	private void prepare() {
+	public void prepare() {
 		String imagePath = getImagePathFromUri();
 		if (imagePath == null) return;
 
