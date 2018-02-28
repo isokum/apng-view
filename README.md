@@ -31,6 +31,7 @@ protected void onCreate(Bundle savedInstanceState) {
     });
 }
 ```
+
 To start an animation immediately after an image has finished loading, passing an object of ApngConfig to the method displayApng(), see the example code below.
 ```java
 ApngImageLoader.getInstance()
