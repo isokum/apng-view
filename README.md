@@ -37,6 +37,26 @@ ApngImageLoader.getInstance()
 	.displayApng(uri, imageView, 
         new ApngImageLoader.ApngConfig(3, true));
 ```
+
+To start an animation menually after image has finished loading
+```java
+ApngImageLoader.getInstance().displayApng(imageUrl, imageView, new ApngImageLoaderCallback() {
+    @Override
+    public void onLoadFinish(boolean success, String imageUri, View view) {
+	ApngDrawable apngDrawable = ApngDrawable.getFromView(imageView);
+	if (apngDrawable != null) {
+	    apngDrawable.prepare();
+	}
+    }
+});
+```
+
+Set Current Frame
+```java
+apngDrawable.setCurrntFrame(10);	
+```
+
+
 ApngConfig has 2 attributes e.g. number of repetition and auto-start. If the number of repetition is less than 1, the library will try to grab the meta-data from APNG source file, if it's not specified, the animation will be playing continuously.
 
 Different formats of URI that are also supported:
