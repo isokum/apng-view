@@ -39,7 +39,7 @@ ApngImageLoader.getInstance()
         new ApngImageLoader.ApngConfig(3, true));
 ```
 
-To start an animation menually after image has finished loading
+To start an animation manually after image has finished loading
 ```java
 ApngImageLoader.getInstance().displayApng(imageUrl, imageView, new ApngImageLoaderCallback() {
     @Override
@@ -52,7 +52,7 @@ ApngImageLoader.getInstance().displayApng(imageUrl, imageView, new ApngImageLoad
 });
 ```
 
-Set Current Frame
+To move frame manually
 ```java
 apngDrawable.setCurrntFrame(10);	
 ```
